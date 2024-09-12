@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom/client";
+import { useState } from "react";
+// import ReactDOM from "react-dom/client";
 import Widget from "@hexlet/chatbot-v2";
 import steps from "../__fixtures__/expectedSteps.js";
 import "@hexlet/chatbot-v2/styles";
