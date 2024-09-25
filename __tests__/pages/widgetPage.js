@@ -1,19 +1,25 @@
-import { BasePage } from "./basePage";
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
-export class WidgetPage extends BasePage {
+export class WidgetPage {
   constructor() {
-    super();
-    this.startConversationButton = this.screen.findByRole('button', { name: 'Start conversation' });
-    this.closeChatBotButton = this.screen.findByLabelText('Close');
-    this.welcomeMessage = this.screen.findByText(/^hello.*to open a chat\.$/i);
-    this.firstMessage = this.screen.findByText(/^I'll help you to choose the best food for your awesome cat/i);
+    this.startChatBotButton = screen.findByText('Открыть Чат');
+    this.heading = screen.findByText('Виртуальный помощник');
+    this.startConversationButton = screen.findByRole('button', { name: 'Start conversation' });
+    this.closeChatBotButton = screen.findByLabelText('Close');
+    this.welcomeMessage = screen.findByText(/^hello.*to open a chat\.$/i);
+    this.firstMessage = screen.findByText(/^I'll help you to choose the best food for your awesome cat/i);
   }
 
-  async clickStartConversation() {
-    this.click(await this.startConversationButton);
+  async openChatBot() {
+    await userEvent.click(await this.startChatBotButton);
+  }
+
+  async startConversation() {
+    await userEvent.click(await this.startConversationButton);
   }
 
   async closeChatBot() {
-    this.click(await this.closeChatBotButton);
+    await userEvent.click(await this.closeChatBotButton);
   }
 };

@@ -8,7 +8,7 @@ const config = {
   },
   extensionsToTreatAsEsm: ['.ts', '.jsx', '.tsx'],
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
-  modulePathIgnorePatterns: ['./__tests__/utils.js', './__tests__/pages'],
+  modulePathIgnorePatterns: ['./__tests__/utils.js', './__tests__/pages']
 }
 
 export default config;

@@ -1,12 +1,36 @@
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
-import fsp from 'node:fs/promises';
-import { MainPage } from './pages/mainPage';
+import expectedSteps from "../__fixtures__/expectedSteps.js";
+import emptySteps from "../__fixtures__/emptySteps.js";
+import unsupportedSteps from "../__fixtures__/unsupportedStepsFormat.js";
+import { WidgetPage } from './pages/widgetPage.js';
+import { RegistrationForm } from './pages/registrationFormPage.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const registrationData = {
+  email: 'email@gmail.com',
+  password: 'secretPassword',
+  address: 'New street, 1',
+  city: 'London',
+  country: 'Аргентина',
+  confirmationCheckBox: 'true',
+  getRegistrationData() {
+    const {  email, password, address, city, country, confirmationCheckBox } = this
+    return {
+      email,
+      password,
+      address,
+      city,
+      country,
+      confirmationCheckBox,
+    };
+  }
+};
 
-export const getFixturePath = (fileName) => path.join(__dirname, '..', '__fixtures__', fileName);
-export const readTestFile = async (fileName) => fsp.readFile(getFixturePath(fileName), 'utf-8');
-
-export const setUp = () => new MainPage();
+export const setUp = () => ({
+  widget: new WidgetPage(),
+  form: new RegistrationForm(),
+  steps: {
+    expectedSteps,
+    emptySteps,
+    unsupportedSteps,
+  },
+  registrationData: registrationData.getRegistrationData(),
+});
