@@ -1,5 +1,6 @@
-import { waitFor, render, waitForElementToBeRemoved } from "@testing-library/react";
+import { waitFor, render, waitForElementToBeRemoved, screen } from "@testing-library/react";
 import { setUp } from "./utils.js";
+import { jest } from "@jest/globals";
 import Widget from "@hexlet/chatbot-v2";
 
 let mockScroll;
@@ -73,9 +74,7 @@ describe('Negative scenarios)', () => {
     } finally {
       expect(possibleError).toBeTruthy();
       expect(document.body).toBeEmptyDOMElement();
-      waitFor(() => {
-        expect(widget.startChatBotButton).not.toBeInTheDocument();
-      });
+      expect(screen.queryByRole('button', { name: 'Start conversation' })).not.toBeInTheDocument();
     }
   });
 
@@ -84,9 +83,7 @@ describe('Negative scenarios)', () => {
     await widget.openChatBot();
 
     expect(await widget.heading).toBeTruthy();
-    waitFor(() => {
-      expect(widget.startConversationButton).not.toBeVisible();
-      expect(widget.welcomeMessage).not.toBeVisible();
-    });
+    expect(screen.queryByRole('button', { name: 'Start conversation' })).not.toBeInTheDocument();
+    expect(screen.queryByText(/^hello.*to open a chat\.$/i)).not.toBeInTheDocument();
   });
 });

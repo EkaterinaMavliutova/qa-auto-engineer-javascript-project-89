@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import { setUp } from "./utils.js";
+import { jest } from "@jest/globals";
 import App from "../src/App.jsx";
 
 let widget;
