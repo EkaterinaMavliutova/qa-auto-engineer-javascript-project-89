@@ -24,9 +24,9 @@ const registrationData = {
   }
 };
 
-export const setUp = () => ({
-  widget: new WidgetPage(),
-  form: new RegistrationForm(),
+export const setUp = (screen) => ({
+  widget: new WidgetPage(screen),
+  form: new RegistrationForm(screen),
   steps: {
     expectedSteps,
     emptySteps,
