@@ -1,24 +1,26 @@
 import { render, screen } from "@testing-library/react";
 import { setUp } from "./utils.js";
-import { vi, test, expect, describe, beforeAll } from 'vitest';
+import { vi, test, expect, beforeAll } from 'vitest';
 import App from "../src/App.jsx";
 
 let widget;
 let form;
 let registrationData;
 
-describe('I am container', () => {
+
 
   beforeAll(() => {
     Element.prototype.scrollIntoView = vi.fn();
   });
   
-  beforeEach(() => {
-    ({ widget, form, registrationData } = setUp(screen));
-    render(<App />);
-  });
+  // beforeEach(() => {
+  //   ({ widget, form, registrationData } = setUp(screen));
+  //   render(<App />);
+  // });
   
   test('Widget renders to the host app the same way as in an isolation', async () => {
+    ({ widget } = setUp(screen));
+    render(<App />);
     await widget.openChatBot();
   
     // expect(await widget.heading).toBeVisible();
@@ -31,6 +33,8 @@ describe('I am container', () => {
   // });
   
   test('It is possible to sign up to host app after Widget integration', async () => {
+    ({ widget, form, registrationData } = setUp(screen));
+    render(<App />);
     const { email, password, address, city, country, confirmationCheckBox } = registrationData;
     const titlesDataMap = {
       'Email': email,
@@ -52,5 +56,4 @@ describe('I am container', () => {
       expect(titlesDataMap).toHaveProperty(title); 
       expect(value).toEqual(titlesDataMap[title]);
     });
-  });  
-})
+  });

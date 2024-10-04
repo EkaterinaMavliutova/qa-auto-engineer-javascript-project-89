@@ -9,11 +9,11 @@ export default defineConfig({
     globals: true,
     setupFiles: ["./vitest.setup.js"],
     css: true,
-    deps: {
-      web: {
-        transformCss: true,
-      },
-    },
+    // deps: {
+    //   web: {
+    //     transformCss: true,
+    //   },
+    // },
     pool: 'vmForks'
   }
 });

@@ -5,13 +5,6 @@ export class RegistrationForm{
   constructor(screen) {
     this.screen = screen;
     this.user = userEvent.setup();
-    // this.emailInput = this.screen.findByLabelText('Email');
-    // this.passwordInput = this.screen.findByLabelText('Пароль');
-    // this.addressInput = this.screen.findByLabelText('Адрес');
-    // this.cityInput = this.screen.findByLabelText('Город');
-    // this.countryInput = this.screen.findByLabelText('Страна');
-    // this.confirmationCheckBox = this.screen.findByLabelText('Принять правила');
-    // this.signupButton = this.screen.findByRole('button', { name: 'Зарегистрироваться' });
   }
 
   async fillForm({ email, password, address, city, country, confirmationCheckBox }) {
