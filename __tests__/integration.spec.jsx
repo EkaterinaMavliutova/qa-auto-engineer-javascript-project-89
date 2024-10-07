@@ -49,12 +49,12 @@ let registrationData;
     await form.fillForm(registrationData);
     await form.submitForm();
     const rows = form.getTableRows();
-  
-    rows.forEach((row) => {  
-      const cells = form.getCellsInRow(row);
+    console.log(`!!!!!!!!!!!!!!!! ${rows}`);
+
+    rows.forEach(({ cells }) => {
       const title = cells[0].textContent;
       const value = cells[1].textContent;
-      expect(titlesDataMap).toHaveProperty(title); 
+      expect(titlesDataMap).toHaveProperty(title);
       expect(value).toEqual(titlesDataMap[title]);
     });
   });

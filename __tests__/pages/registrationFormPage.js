@@ -38,12 +38,19 @@ export default class RegistrationForm {
   }
 
   getTableRows() {
-    return this.screen.getAllByRole('row');
+    const rows = this.screen.getAllByRole('row');
+    return rows.map((row) => ({
+      cells: within(row).getAllByRole('cell'),
+    }));
   }
 
-  getCellsInRow(row) {
-    return within(row).getAllByRole('cell');
-  }
+  // getTableRows() {
+  //   return this.screen.getAllByRole('row');
+  // }
+
+  // getCellsInRow(row) {
+  //   return within(row).getAllByRole('cell');
+  // }
 
   verifyRegistrationFormIsVisible() {
     expect(this.emailInput).toHaveAttribute('placeholder', 'Email');
