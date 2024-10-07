@@ -29,6 +29,3 @@ npm run dev
 ```
 npm test
 ```
-
-## Chatbot Widget recordings on asciinema.org
-### User interaction example:

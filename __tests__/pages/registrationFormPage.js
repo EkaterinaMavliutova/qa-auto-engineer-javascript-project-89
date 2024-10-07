@@ -44,14 +44,6 @@ export default class RegistrationForm {
     }));
   }
 
-  // getTableRows() {
-  //   return this.screen.getAllByRole('row');
-  // }
-
-  // getCellsInRow(row) {
-  //   return within(row).getAllByRole('cell');
-  // }
-
   verifyRegistrationFormIsVisible() {
     expect(this.emailInput).toHaveAttribute('placeholder', 'Email');
     expect(this.passwordInput).toHaveAttribute('placeholder', 'Пароль');

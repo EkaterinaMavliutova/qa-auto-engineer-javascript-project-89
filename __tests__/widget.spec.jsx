@@ -12,21 +12,16 @@ let mockScroll;
 let widget;
 let steps;
 
-
 beforeAll(() => {
   mockScroll = Element.prototype.scrollIntoView = vi.fn();
 });
 
 describe("Positive scenarios", () => {
-  // beforeEach(() => {
-  //   ({ widget, steps, user } = setUp());
-
-  //   render(Widget(steps.expectedSteps));
-  // });
 
   test("Renders whithout errors", async () => {
     ({ widget, steps } = setUp(screen));
     render(Widget(steps.expectedSteps));
+
     await widget.openChatBot();
 
     widget.verifyChatBotIsOpened();
@@ -35,6 +30,7 @@ describe("Positive scenarios", () => {
   test("Should be possible to start a conversation", async () => {
     ({ widget, steps } = setUp(screen));
     render(Widget(steps.expectedSteps));
+
     await widget.openChatBot();
     await widget.startConversation();
 
@@ -44,9 +40,9 @@ describe("Positive scenarios", () => {
   test("Close button should return widget to the initial state", async () => {
     ({ widget, steps } = setUp(screen));
     render(Widget(steps.expectedSteps));
+
     await widget.openChatBot();
     await widget.startConversation();
-
     await widget.closeChatBot();
 
     widget.verifyChatBotIsClosed();
@@ -55,6 +51,7 @@ describe("Positive scenarios", () => {
   test("Scrolls to the bottom when new message appears", async () => {
     ({ widget, steps } = setUp(screen));
     render(Widget(steps.expectedSteps));
+
     await widget.openChatBot();
     await widget.startConversation();
 
@@ -63,9 +60,7 @@ describe("Positive scenarios", () => {
 });
 
 describe("Negative scenarios)", () => {
-  // beforeEach(() => {
-  //   ({ widget, steps } = setUp());
-  // });
+
   test("Crashes when unsupportet steps format was passed", async () => {
     await waitFor(() => {
       expect(() => {
@@ -95,6 +90,7 @@ describe("Negative scenarios)", () => {
   test("Should show empty chat window when empty steps array was passed", async () => {
     ({ widget, steps } = setUp(screen));
     render(Widget(steps.emptySteps));
+
     await widget.openChatBot();
 
     expect(widget.heading).toBeTruthy();

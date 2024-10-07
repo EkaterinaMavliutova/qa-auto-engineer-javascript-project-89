@@ -8,31 +8,19 @@ let widget;
 let form;
 let registrationData;
 
+beforeAll(() => {
+  Element.prototype.scrollIntoView = vi.fn();
+});
 
-
-  beforeAll(() => {
-    Element.prototype.scrollIntoView = vi.fn();
-  });
-  
-  // beforeEach(() => {
-  //   ({ widget, form, registrationData } = setUp(screen));
-  //   render(<App />);
-  // });
-  
   test('Widget renders to the host app the same way as in an isolation', async () => {
     ({ widget } = setUp(screen));
     render(<App />);
+
     await widget.openChatBot();
-  
-    // expect(await widget.heading).toBeVisible();
-    // expect(await widget.welcomeMessage).toBeVisible();
+
     widget.verifyChatBotIsOpened();
   });
-  
-  // test('Host app renders whithout errors after Widget integration', async () => {
-  //   form.verifyRegistrationFormIsVisible();
-  // });
-  
+
   test('It is possible to sign up to host app after Widget integration', async () => {
     ({ widget, form, registrationData } = setUp(screen));
     render(<App />);
@@ -45,11 +33,10 @@ let registrationData;
       'Страна': country,
       'Принять правила': confirmationCheckBox,
     };
-  
+ 
     await form.fillForm(registrationData);
     await form.submitForm();
     const rows = form.getTableRows();
-    console.log(`!!!!!!!!!!!!!!!! ${rows}`);
 
     rows.forEach(({ cells }) => {
       const title = cells[0].textContent;
