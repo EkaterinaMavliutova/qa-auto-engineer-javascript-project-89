@@ -9,7 +9,8 @@ export default defineConfig({
     setupFiles: ['./vitest.setup.js'],
     css: true,
     coverage: {
-      reporter: ['html'],
+      reporter: ['text', 'lcov'],
+      reportsDirectory: './coverage',
     },
     pool: 'vmForks',
   },
