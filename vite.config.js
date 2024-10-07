@@ -8,11 +8,9 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./vitest.setup.js'],
     css: true,
-    // deps: {
-    //   web: {
-    //     transformCss: true,
-    //   },
-    // },
+    coverage: {
+      reporter: ['html'],
+    },
     pool: 'vmForks',
   },
 });
