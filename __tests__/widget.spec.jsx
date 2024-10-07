@@ -93,8 +93,8 @@ describe("Negative scenarios)", () => {
   });
 
   test("Should show empty chat window when empty steps array was passed", async () => {
-    render(Widget(steps.emptySteps));
     ({ widget, steps } = setUp(screen));
+    render(Widget(steps.emptySteps));
     await widget.openChatBot();
 
     expect(widget.heading).toBeTruthy();

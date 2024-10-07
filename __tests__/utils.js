@@ -1,8 +1,8 @@
 import expectedSteps from '../__fixtures__/expectedSteps.js';
 import emptySteps from '../__fixtures__/emptySteps.js';
 import unsupportedSteps from '../__fixtures__/unsupportedStepsFormat.js';
-import { WidgetPage } from './pages/widgetPage.js';
-import { RegistrationForm } from './pages/registrationFormPage.js';
+import WidgetPage from './pages/widgetPage.js';
+import RegistrationForm from './pages/registrationFormPage.js';
 
 const registrationData = {
   email: 'email@gmail.com',
