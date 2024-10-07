@@ -4,7 +4,7 @@ import {
   screen,
 } from "@testing-library/react";
 import setUp from "./utils.js";
-import { vi, test, describe, beforeAll } from "vitest";
+import {vi, test, describe, beforeAll, expect} from "vitest";
 import Widget from "@hexlet/chatbot-v2";
 import '@testing-library/jest-dom';
 
@@ -17,7 +17,6 @@ beforeAll(() => {
 });
 
 describe("Positive scenarios", () => {
-
   test("Renders whithout errors", async () => {
     ({ widget, steps } = setUp(screen));
     render(Widget(steps.expectedSteps));
