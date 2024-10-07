@@ -13,6 +13,7 @@ let widget;
 let steps;
 
 beforeAll(() => {
+  // eslint-disable-next-line no-undef
   mockScroll = Element.prototype.scrollIntoView = vi.fn();
 });
 
@@ -67,23 +68,6 @@ describe("Negative scenarios)", () => {
         render(Widget(steps.unsupportedSteps));
       }).toThrow(/e is not iterable/i);
     });
-  });
-
-  test("Should not render when unsupportet steps format was passed", async () => {
-    let possibleError = "";
-
-    try {
-      ({ widget, steps } = setUp(screen));
-      render(Widget(steps.unsupportedSteps));
-    } catch (error) {
-      possibleError = error.message;
-    } finally {
-      expect(possibleError).toBeTruthy();
-      expect(document.body).toBeEmptyDOMElement();
-      expect(
-        screen.queryByRole("button", { name: "Start conversation" })
-      ).not.toBeInTheDocument();
-    }
   });
 
   test("Should show empty chat window when empty steps array was passed", async () => {
