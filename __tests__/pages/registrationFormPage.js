@@ -1,13 +1,20 @@
-import { within } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { within, expect } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-export class RegistrationForm{
+export default class RegistrationForm {
   constructor(screen) {
     this.screen = screen;
     this.user = userEvent.setup();
   }
 
-  async fillForm({ email, password, address, city, country, confirmationCheckBox }) {
+  async fillForm({
+    email,
+    password,
+    address,
+    city,
+    country,
+    confirmationCheckBox,
+  }) {
     this.emailInput = this.screen.getByLabelText('Email');
     this.passwordInput = this.screen.getByLabelText('Пароль');
     this.addressInput = this.screen.getByLabelText('Адрес');
@@ -48,4 +55,4 @@ export class RegistrationForm{
     expect(this.signupButton).toBeVisible();
     expect(this.signupButton).toBeEnabled();
   }
-};
+}

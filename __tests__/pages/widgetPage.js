@@ -1,16 +1,10 @@
-import userEvent from "@testing-library/user-event";
-import { expect } from "vitest";
+import userEvent from '@testing-library/user-event';
+import { expect } from 'vitest';
 
-export class WidgetPage {
+export default class WidgetPage {
   constructor(screen) {
     this.screen = screen;
     this.user = userEvent.setup();
-    // this.startChatBotButton = this.screen.findByText('Открыть Чат');
-    // this.heading = this.screen.findByText('Виртуальный помощник');
-    // this.startConversationButton = this.screen.findByRole('button', { name: 'Start conversation' });
-    // this.closeChatBotButton = this.screen.findByLabelText('Close');
-    // this.welcomeMessage = this.screen.findByText(/^hello.*to open a chat\.$/i);
-    // this.firstMessage = this.screen.findByText(/^I'll help you to choose the best food for your awesome cat/i);
   }
 
   async openChatBot() {
@@ -46,4 +40,4 @@ export class WidgetPage {
   verifyConversaitionIsStarted() {
     expect(this.firstMessage).toBeVisible();
   }
-};
+}

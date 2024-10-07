@@ -1,6 +1,6 @@
-import expectedSteps from "../__fixtures__/expectedSteps.js";
-import emptySteps from "../__fixtures__/emptySteps.js";
-import unsupportedSteps from "../__fixtures__/unsupportedStepsFormat.js";
+import expectedSteps from '../__fixtures__/expectedSteps.js';
+import emptySteps from '../__fixtures__/emptySteps.js';
+import unsupportedSteps from '../__fixtures__/unsupportedStepsFormat.js';
 import { WidgetPage } from './pages/widgetPage.js';
 import { RegistrationForm } from './pages/registrationFormPage.js';
 
@@ -12,7 +12,14 @@ const registrationData = {
   country: 'Аргентина',
   confirmationCheckBox: 'true',
   getRegistrationData() {
-    const {  email, password, address, city, country, confirmationCheckBox } = this
+    const {
+      email,
+      password,
+      address,
+      city,
+      country,
+      confirmationCheckBox,
+    } = this;
     return {
       email,
       password,
@@ -21,10 +28,10 @@ const registrationData = {
       country,
       confirmationCheckBox,
     };
-  }
+  },
 };
 
-export const setUp = (screen) => ({
+const setUp = (screen) => ({
   widget: new WidgetPage(screen),
   form: new RegistrationForm(screen),
   steps: {
@@ -34,3 +41,5 @@ export const setUp = (screen) => ({
   },
   registrationData: registrationData.getRegistrationData(),
 });
+
+export default setUp;
