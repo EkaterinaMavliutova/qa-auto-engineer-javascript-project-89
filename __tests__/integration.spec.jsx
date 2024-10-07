@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { setUp } from "./utils.js";
 import { vi, test, expect, beforeAll } from 'vitest';
+import '@testing-library/jest-dom';
 import App from "../src/App.jsx";
 
 let widget;

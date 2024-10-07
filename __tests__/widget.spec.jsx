@@ -4,8 +4,9 @@ import {
   screen,
 } from "@testing-library/react";
 import { setUp } from "./utils.js";
-import { vi, describe, beforeAll } from "vitest";
+import { vi, test, describe, beforeAll } from "vitest";
 import Widget from "@hexlet/chatbot-v2";
+import '@testing-library/jest-dom';
 
 let mockScroll;
 let widget;
