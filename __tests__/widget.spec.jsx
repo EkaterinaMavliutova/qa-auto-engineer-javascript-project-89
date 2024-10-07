@@ -13,7 +13,6 @@ let widget;
 let steps;
 
 beforeAll(() => {
-  // eslint-disable-next-line no-undef
   mockScroll = Element.prototype.scrollIntoView = vi.fn();
 });
 

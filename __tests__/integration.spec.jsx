@@ -9,7 +9,6 @@ let form;
 let registrationData;
 
 beforeAll(() => {
-  // eslint-disable-next-line no-undef
   Element.prototype.scrollIntoView = vi.fn();
 });
 
