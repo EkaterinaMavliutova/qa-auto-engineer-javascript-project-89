@@ -8,11 +8,10 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./vitest.setup.js'],
     css: true,
-    // deps: {
-    //   web: {
-    //     transformCss: true,
-    //   },
-    // },
+    coverage: {
+      reporter: ['text', 'lcov'],
+      reportsDirectory: './coverage',
+    },
     pool: 'vmForks',
   },
 });

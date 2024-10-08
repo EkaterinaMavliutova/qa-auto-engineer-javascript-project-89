@@ -33,7 +33,7 @@ beforeAll(() => {
       'Страна': country,
       'Принять правила': confirmationCheckBox,
     };
- 
+
     await form.fillForm(registrationData);
     await form.submitForm();
     const rows = form.getTableRows();
