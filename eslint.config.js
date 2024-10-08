@@ -1,6 +1,6 @@
 import js from '@eslint/js';
 import react from 'eslint-plugin-react';
-import globals from "globals";
+import globals from 'globals';
 
 export default [
   {
@@ -8,7 +8,7 @@ export default [
       'dist',
       'vite.config.js',
       'vitest.setup.js',
-      'coverage'
+      'coverage',
     ],
   },
   {
@@ -16,7 +16,7 @@ export default [
     languageOptions: {
       ecmaVersion: 2020,
       globals: {
-        ...globals.browser
+        ...globals.browser,
       },
       parserOptions: {
         ecmaVersion: 'latest',
@@ -32,7 +32,8 @@ export default [
       ...js.configs.recommended.rules,
       ...react.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
-      'react/react-in-jsx-scope': 'off'
+      'react/react-in-jsx-scope': 'off',
+      'import/no-extraneous-dependencies': 'off',
     },
   },
 ];

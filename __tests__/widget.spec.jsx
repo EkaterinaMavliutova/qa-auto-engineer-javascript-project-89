@@ -1,8 +1,4 @@
-import {
-  waitFor,
-  render,
-  screen,
-} from "@testing-library/react";
+import { waitFor, render, screen } from "@testing-library/react";
 import setUp from "./utils.js";
 import {vi, test, describe, beforeAll, expect} from "vitest";
 import Widget from "@hexlet/chatbot-v2";

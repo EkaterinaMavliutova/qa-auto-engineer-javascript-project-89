@@ -8,10 +8,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js 20.7.0
+    - name: Use Node.js 20.11.1
       uses: actions/setup-node@v4
       with:
-        node-version: 20.7.0
+        node-version: 20.11.1
         cache: 'npm'
     - run: npm ci
     - run: npm run lint

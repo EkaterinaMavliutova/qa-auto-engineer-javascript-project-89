@@ -13,7 +13,7 @@ Testing covers the following cases:
 * How it handles configuration errors.
 
 ## Installation
->note: the current version of Chatbot Widget was tested using Node.js v22.5.1
+>note: the current version of Chatbot Widget was tested using Node.js v20.11.1
 * Clone this repository.
 * Install required dependencies:
 ```
