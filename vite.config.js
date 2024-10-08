@@ -1,4 +1,6 @@
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 import { defineConfig } from 'vite';
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
